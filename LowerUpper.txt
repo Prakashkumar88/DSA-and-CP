@@ -1,0 +1,10 @@
+#  Here is the short method to convert any upper case Letter to 
+#  Lower case latter in one simple step .
+
+char upper(char c){
+	return 'A' + (c - 'a');
+}
+
+char lower(char c){
+	return 'a' + (c - 'A');
+}
