@@ -1,4 +1,4 @@
-// Below Code is given to find the number that is missing in one array after Comparing both the arrays.
+// Below Code is given to find the number that is missing any element in one array after Comparing both the arrays.
 
 #include <iostream>
 using namespace std;
