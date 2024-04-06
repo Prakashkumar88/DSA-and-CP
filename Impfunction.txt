@@ -1,0 +1,7 @@
+1.next_permutaion 
+// The next_permutation function is a part of the C++ Standard Library's <algorithm> header.
+// It's used to rearrange the elements in a range (such as an array or a container) into the next lexicographically greater permutation.
+// Here's how it works internally:
+// next_permutation rearranges the elements to the next lexicographically greater permutation if one exists.
+// If no greater permutation is possible (i.e., the elements are in descending order), it rearranges them into the first permutation (i.e., ascending order) and returns false.
+// Make sure the elements in the range are sorted in non-decreasing order before using next_permutation. If not, you can use std::sort to sort the range first.
