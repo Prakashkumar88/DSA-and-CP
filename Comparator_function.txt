@@ -1,0 +1,80 @@
+In C++, comparators are functions or function objects used to define ordering between elements. 
+They are commonly used with algorithms, data structures like std::set, std::map, and various sorting functions.
+Here’s a list of commonly used comparator functions and function objects in C++:
+
+
+1. Standard Comparators
+std::less<T>: Checks if the first argument is less than the second.
+  std::less<int> less_than; // Defines less-than comparator for int
+std::greater<T>: Checks if the first argument is greater than the second.
+  std::greater<int> greater_than; // Defines greater-than comparator for int
+std::less_equal<T>: Checks if the first argument is less than or equal to the second.
+    std::less_equal<int> less_equal; // Defines less-than-or-equal comparator for int
+std::greater_equal<T>: Checks if the first argument is greater than or equal to the second.
+  std::greater_equal<int> greater_equal; // Defines greater-than-or-equal comparator for int
+std::equal_to<T>: Checks if the two arguments are equal.
+  std::equal_to<int> equal; // Defines equality comparator for int
+std::not_equal_to<T>: Checks if the two arguments are not equal.
+  std::not_equal_to<int> not_equal; // Defines not-equal comparator for int
+
+2. Custom Comparators
+You can define your own comparators as function objects (functors) or lambda expressions. Here’s an example of each:
+
+Function Object (Functor):
+struct CompareByAbsoluteValue {
+    bool operator()(int a, int b) const {
+        return std::abs(a) < std::abs(b);
+    }
+};
+
+// Usage
+std::set<int, CompareByAbsoluteValue> mySet;
+
+Lambda Expression:
+auto customComparator = [](int a, int b) {
+    return a % 10 < b % 10; // Example: compare based on the last digit
+};
+
+// Usage with algorithms
+std::vector<int> vec = {13, 25, 37};
+std::sort(vec.begin(), vec.end(), customComparator);
+
+
+3. Comparators for Sorting
+When using sorting algorithms like std::sort, you can pass a custom comparator:
+#include <algorithm>
+#include <vector>
+#include <iostream>
+
+int main() {
+    std::vector<int> vec = {3, 1, 4, 1, 5, 9};
+
+    // Sorting in descending order
+    std::sort(vec.begin(), vec.end(), std::greater<int>());
+
+    // Print the sorted vector
+    for (int num : vec) {
+        std::cout << num << " ";
+    }
+
+    return 0;
+}
+
+4. Comparators for Associative Containers
+When defining associative containers like std::set or std::map, you can specify a comparator to determine the ordering of elements:
+#include <set>
+#include <iostream>
+
+int main() {
+    // Set with custom comparator to sort in descending order
+    std::set<int, std::greater<int>> mySet = {3, 1, 4, 1, 5, 9};
+
+    // Print the set elements
+    for (int num : mySet) {
+        std::cout << num << " ";
+    }
+
+    return 0;
+}
+
+These comparators can be used to customize the way elements are compared and ordered in various contexts.
