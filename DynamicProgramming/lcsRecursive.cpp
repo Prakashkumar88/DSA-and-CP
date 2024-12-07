@@ -78,7 +78,7 @@ int lcs(string s1, string s2, int n, int m){
         return dp[n][m] = 1 + lcs(s1, s2, n-1, m-1);
     }
     else{
-        dp[n][m] = max(lcs(s1, s2, n, m-1), lcs(s1, s2, n-1, m));
+        return dp[n][m] = max(lcs(s1, s2, n, m-1), lcs(s1, s2, n-1, m));
     }
 
     return dp[n][m];
