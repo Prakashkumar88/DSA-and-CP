@@ -86,9 +86,9 @@ int lcs(string s1, string s2, int n, int m){
 void solve(){
     string s1, s2;
     cin >> s1 >> s2;
-                                                 // s1 = “geek”, s2 = “eke”
-    int n = len(s1), m = len(s2);                // output - 5
-    dp.assign(n + 1, vector<int>(m + 1, -1));    //Explanation: String “geeke” has both string “geek” and “eke” as subsequences.
+                                                 
+    int n = len(s1), m = len(s2);                
+    dp.assign(n + 1, vector<int>(m + 1, -1));    
 
     int ls = lcs(s1, s2, n, m);
     cout << "Deletion : " << (n > m ? n - ls : m - ls) << nl;
