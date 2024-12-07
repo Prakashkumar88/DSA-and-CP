@@ -90,6 +90,20 @@ void solve(){
     int n = len(s1), m = len(s2);
     dp.assign(n + 1, vector<int>(m + 1, -1));
     cout << lcs(s1, s2, n, m) << nl;
+
+    int i = n, j = m;
+    string ans;
+    while(i > 0 && j > 0){
+        if(s1[i-1] == s2[j-1]){
+            ans += s1[i-1];
+            i--;
+            j--;
+        }else{
+            dp[i-1][j] > dp[i][j-1] ? i-- : j--;
+        }
+    }
+    reverse(all(ans));
+    cout << ans << nl;
 }
 
 int main(){
