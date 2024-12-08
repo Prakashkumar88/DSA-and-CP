@@ -93,6 +93,7 @@ void solve(){
     dp.assign(n + 1, vector<int>(m + 1, -1));    
 
     cout << "Deletion : " << n - lcs(s1, s2, n, m) << nl;
+    cout << "Insertion : " << n - lcs(s1, s2, n, m) << nl; //Min insertion required to get the stiring Palindromic
 }
 
 int main(){
