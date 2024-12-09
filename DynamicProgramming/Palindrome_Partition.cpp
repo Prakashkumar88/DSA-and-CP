@@ -90,15 +90,19 @@ int costMult(const string &s, int i, int j)
 
     if (i >= j || isPalindrome(s, i, j))
         return 0;
-
     if (dp[i][j] != -1)
         return dp[i][j];
 
     int mn = INF;
     for (int k = i; k < j; k++)
     {
+        int left = (dp[i][k] != -1) ? dp[i][k] : costMult(s, i, k);
+        int right = (dp[k + 1][j] != -1) ? dp[k + 1][j] : costMult(s, k + 1, j);
 
-        int temp = costMult(s, i, k) + 1 + costMult(s, k + 1, j);
+        dp[i][k] = left;
+        dp[k + 1][j] = right;
+
+        int temp = left + right + 1;
         mn = min(mn, temp);
     }
 
@@ -111,7 +115,7 @@ void solve()
     int n = len(s);
     dp.assign(n + 1, vi(n + 1, -1));
 
-    cout << costMult(s, 0, n-1) << nl;
+    cout << costMult(s, 0, n - 1) << nl;
 }
 
 int main()
