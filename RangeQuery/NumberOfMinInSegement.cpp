@@ -72,20 +72,22 @@ ll power(ll a, ll b, ll mod) {
 class SegmentTree
 {
 private:
-    vll tree;
+    vector<pair<ll, ll >> tree;
     vll arr;
     ll n;
 
-    ll merge(ll left, ll right)
+    pair<ll, ll> merge(pair<ll, ll> left, pair<ll, ll> right)
     {
-        return min(left, right);  
+        if(left.first == right.first)   return {left.first, left.second + right.second};
+        else if(left.first < right.first) return left;
+        else return right;
     }
 
     void build(ll node, ll start, ll end)
     {
         if (start == end)
         {
-            tree[node] = arr[start];  
+            tree[node] = {arr[start], 1};  
         }
         else
         {
@@ -105,7 +107,7 @@ private:
         if (start == end)
         {
             arr[idx] = value;
-            tree[node] = value;
+            tree[node] = {value, 1};
         }
         else
         {
@@ -126,11 +128,11 @@ private:
         }
     }
 
-    ll query(ll node, ll start, ll end, ll L, ll R)
+    pair<ll, ll> query(ll node, ll start, ll end, ll L, ll R)
     {
         if (R < start || L > end)
         {
-            return INT_MAX; 
+            return {INF, 1}; 
         }
         if (L <= start && end <= R)
         {
@@ -138,8 +140,8 @@ private:
         }
 
         ll mid = (start + end) / 2;
-        ll leftResult = query(2 * node, start, mid, L, R);
-        ll rightResult = query(2 * node + 1, mid + 1, end, L, R);
+        pair<ll, ll> leftResult = query(2 * node, start, mid, L, R);
+        pair<ll, ll> rightResult = query(2 * node + 1, mid + 1, end, L, R);
         return merge(leftResult, rightResult);
     }
 
@@ -148,7 +150,7 @@ public:
     {
         n = inputArray.size();
         arr = inputArray;
-        tree.resize(4 * n, INT_MAX); 
+        tree.resize(4 * n, {0, 0}); 
         build(1, 0, n-1); 
     }
 
@@ -157,7 +159,7 @@ public:
         update(1, 0, n-1, idx, value); 
     }
 
-    ll query(ll L, ll R)
+    pair<ll, ll> query(ll L, ll R)
     {
         return query(1, 0, n-1, L, R); 
     }
@@ -186,8 +188,8 @@ void solve()
         }else{
             ll l, r;
             cin >> l >> r;
-            ll ans = segTree.query(l, r-1);
-            cout << ans << nl;
+            pair<ll, ll> ans = segTree.query(l, r-1);
+            cout << ans.first << sp << ans.second << nl;
         }
     }
 }
