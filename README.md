@@ -14,7 +14,7 @@ Welcome to the **Data Structures, Algorithms, and Competitive Programming** repo
 
 1. **Clone the repository:**
    ```bash
-   [git clone https://github.com/yourusername/DSA-Competitive-Programming.git](https://github.com/Prakashkumar88/DSA-and-CP.git)
+   https://github.com/Prakashkumar88/DSA-and-CP.git
    ```
 2. **Navigate to the project directory:**
    ```bash
