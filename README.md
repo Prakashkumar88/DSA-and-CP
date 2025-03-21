@@ -9,25 +9,6 @@ Welcome to the **Data Structures, Algorithms, and Competitive Programming** repo
 - **Competitive Programming:** Problem-solving techniques, coding strategies, optimization methods, and real contest problems.
 - **Practical Examples:** Code implementations with detailed comments in **C/C++** for better understanding.
 
-## 📂 Repository Structure
-
-```
-├── Data-Structures
-│   ├── Arrays
-│   ├── Linked-Lists
-│   ├── Stacks
-│   └── Trees
-├── Algorithms
-│   ├── Sorting
-│   ├── Searching
-│   ├── Dynamic-Programming
-│   └── Graph-Algorithms
-├── Competitive-Programming
-│   ├── Problem-Solutions
-│   ├── Contest-Strategies
-│   └── Optimization-Techniques
-└── README.md
-```
 
 ## 💡 Getting Started
 
